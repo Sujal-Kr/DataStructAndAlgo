@@ -2,7 +2,7 @@
 - 👀 I’m interested in Language/web Devlopment/Coding.
 - 🌱 I’m currently learning Java
 - 💞️ I’m looking to collaborate on everything possible.
-- 📫 How to reach me @_noya.san(Insta-Id).
+- 📫 How to reach me @_noya.san(Insta-Id)/sunnykumarcms45@gmail.com
 
 <!---
 Sujal-Kr/Sujal-Kr is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
