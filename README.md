@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @Sujal-Kr
-- 👀 I’m interested in Language/web Devlopment/Coding.
+- 👀 I’m interested in Language/web Devlopment/App Devlopement/Coding.
 - 🌱 I’m currently learning Java
 - 💞️ I’m looking to collaborate on everything possible.
 - 📫 How to reach me @_noya.san(Insta-Id)/sunnykumarcms45@gmail.com
