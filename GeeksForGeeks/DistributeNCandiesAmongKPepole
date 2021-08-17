@@ -1,0 +1,22 @@
+package GeeksForGeeks;
+
+public class DistributeChoclate{
+    public static void main(String[] args) {
+        int n=542;
+        int k=8;
+        int []x=distribute(n,k);
+        for(int item:x)System.out.print(item+" ");
+    }
+    public static int[] distribute(int n,int k){
+        int [] result=new int[k];
+        int choc=1;
+        int i=k;
+        while(n>0){ 
+            result[i%k]=result[i%k]+Math.min(choc,n);
+            n-=choc;
+            i++;
+            choc++;
+        }
+        return result;
+    }
+}
