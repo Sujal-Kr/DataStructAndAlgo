@@ -1,0 +1,28 @@
+package GeeksForGeeks;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Arrays;
+public class LimitedRange{
+    public static void main(String[] args) {
+        int arr[]={2, 3, 2, 3, 5};
+        // 2 2 3 3 5
+        // 0 2 2 0 1
+        frequencycount(arr,5);
+        for(int item:arr)System.out.print(item+" ");
+    }
+
+    private static void frequencycount(int[] a,int n) {
+        Map<Integer, Integer> map =new HashMap<>();
+        for(int item:a){
+            if(map.containsKey(item))map.put(item,map.get(item)+1);
+            else map.put(item,1);
+        }
+        Set<Entry<Integer, Integer>> x=map.entrySet();
+        Arrays.fill(a,0);
+        for(Entry<Integer, Integer> entries:x){
+            a[entries.getKey()-1]=entries.getValue();
+        }
+    }
+}
