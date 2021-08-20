@@ -1,0 +1,62 @@
+package Practices;
+// import java.io.*;
+import java.util.*;
+
+public class SimpleTextEditor {
+
+    public static void main(String[] args) {
+       Scanner in=new Scanner(System.in);
+       int q=in.nextInt();
+    //    System.out.println();
+       String[] operations =new String[q+1];
+       for(int i=0;i<=q;i++){
+           String temp=in.nextLine();
+           operations[i]=temp.trim();
+        }
+        for(String temp:operations)System.out.println(temp);
+       texteditor(operations);
+       in.close();
+    }
+    private static void texteditor(String[] operations) {
+        Stack<String> st = new Stack<String>();
+        // st.push(s);
+        for(int i=1;i<operations.length;i++) {
+            // 1.append
+            String opr=operations[i];
+            if(opr.charAt(0) =='1'){
+                if(st.isEmpty())st.push(opr.substring(2));
+                else{
+                    String temp=opr.substring(2);
+                    st.push(st.peek()+temp);
+                }
+                // System.out.println(st);
+            }
+            // 2.delete
+            else if(opr.charAt(0) =='2'){
+                int index=Integer.parseInt(opr.substring(2));
+                String temp= st.peek();
+                //""
+                String x=temp.substring(0,temp.length()-index);
+                st.push(x);
+            }
+            // 3.print
+            else if(opr.charAt(0) =='3'){
+                int index=Integer.parseInt(opr.substring(2));
+                String temp=st.peek();
+                System.out.println(temp.charAt(index-1));
+            }
+            // 4.undo
+            else st.pop();
+            // System.out.println(st);
+        }
+    }
+}
+// 8
+// 1 abc
+// 3 3
+// 2 3
+// 1 xy
+// 3 2
+// 4
+// 4
+// 3 1
