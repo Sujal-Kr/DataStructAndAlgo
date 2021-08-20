@@ -1,0 +1,25 @@
+package LeetCode;
+
+public class NextGreaterElement2 {
+    public static void main(String[] args) {
+        int[] x={1,2,1,4,-3};
+        int[] ans=solution(x);
+        for(int item:ans)System.out.print(item+" ");
+    }
+    private static int[] solution(int [] x) {
+        int result[]=new int[x.length];
+        for(int i=0; i<x.length; i++){
+            int j=i+1;
+            while(j<x.length&&x[i]>=x[j])j++;
+            if(j==x.length){
+                int k=0;
+                while(k<i&&x[i]>=x[k])k++;
+                if(k==i)result[i]=-1;
+                else result[i]=x[k];
+            }
+            else result[i]=x[j];
+        }
+        return result;
+    }
+
+}
