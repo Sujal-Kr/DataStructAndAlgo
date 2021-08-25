@@ -1,0 +1,28 @@
+package GeeksForGeeks;
+import java.util.ArrayList;
+public class SearchingPattern {
+    public static void main(String[] args) {
+        String str="abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd";
+        String pat="abcd";
+        System.out.println(solution(str, pat));
+    }
+
+    private static ArrayList<Integer> solution(String str, String pat) {
+        int n=pat.length();
+        int m=str.length();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int i=0;i<=(m-n);i++){
+            boolean check=true;
+            for(int j=0;j<n;j++){
+                if(pat.charAt(j)!=str.charAt(i+j)){
+                    check=false;
+                    break;
+                }
+                
+            }
+            if(check)list.add(i+1);
+        }
+        if(list.size()==0)list.add(-1);
+        return list;
+    }
+}
