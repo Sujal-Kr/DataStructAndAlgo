@@ -204,6 +204,8 @@ public class Main {
         // path(root,30);
         // System.out.println(x);
         // knodes(root,2);
+        // mirror(root);
+        // linear(root);
         printkelementsfar(root,12,2);
     }
     public static void knodes(Node node ,int k){
@@ -249,6 +251,23 @@ public class Main {
         
         for(int i=0;i<x.size();i++){
             knodes(x.get(i),(k-i),i==0?null:x.get(i-1));
+        }
+    }
+    public static void mirror(Node node){
+        Queue<Node> q=new LinkedList<Node>();
+        q.add(node);
+        while(!q.isEmpty()){ 
+            int size=q.size();
+            for(int i=0;i<size;i++){
+                Node top=q.remove();
+                if(top.left!=null)q.add(top.left);
+                if(top.right!=null)q.add(top.right);
+                if(top.left!=null&&top.right!=null){
+                    Node temp=top.left;
+                    top.left=top.right;
+                    top.right=temp;
+                }
+            }
         }
     }
 }
