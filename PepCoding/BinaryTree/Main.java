@@ -23,8 +23,9 @@ public class Main {
     }
     public static void display(Node node){
         if(node==null)return;
-        System.out.print(node.data+" ");
+       
         System.out.print(node.left==null?"NULL ":node.left.data+" ");
+        System.out.print(node.data+" ");
         System.out.print(node.right==null?"NULL ":node.right.data+" ");
         System.out.println();
         display(node.left);
@@ -54,10 +55,10 @@ public class Main {
         sum+=sum(node.left)+sum(node.right);
         return sum;
     }
-    public static int hieght(Node node){
-        int h=-1;
-        if(node==null)return -1;// return 0 for node hiegth
-        h=Math.max(hieght(node.left),hieght(node.right));
+    public static int height(Node node){
+        int h=0;
+        if(node==null)return 0;// return 0 for node heigth and 1 for edge height
+        h=Math.max(height(node.left),height(node.right));
         h+=1;
         return h;
     }
@@ -160,6 +161,8 @@ public class Main {
         return false;
     }
     public static void main(String[] args) {
+        // [5,4,6,null,null,3,7]
+        // {50,25,12,null,null,37,30,null,null,null,75,62,null,70,null,null,87,null,null}
         Integer[] arr = {50,25,12,null,null,37,30,null,null,null,75,62,null,70,null,null,87,null,null};
         Node root =new Node(arr[0],null,null);
         Stack<Pair> st=new Stack<Pair>();
@@ -198,15 +201,38 @@ public class Main {
         // display(root);
         // System.out.println(hieght(root));
         // traversal(root);
-        //linear(root);
+        // linear(root);
         // System.out.println(reverseorder(root));
         // x=new ArrayList<Integer>(); 
         // path(root,30);
         // System.out.println(x);
         // knodes(root,2);
+        // printkelementsfar(root,12,2);
+        // linear(root);
         // mirror(root);
         // linear(root);
-        printkelementsfar(root,12,2);
+        // zigzag(root);
+        // System.out.println(leafcount(root));
+        // topview(root);
+        // pathToLeafFromRoot(root,"",0,150,250);
+        // leftclonedtree2(root);
+        // linear(root);
+        // System.out.println();
+        // backfromclonedtree2(root);
+        // linear(root);
+        // SingleChildNode(root);
+        // removeleafs(root);
+        // linear(root);
+        // System.out.println(tiltatree(root));
+        // System.out.println(diameter(root));
+        // rightView(root);
+        // leftview(root);
+        // display(root);
+        // isBst(root);
+        // System.out.println(check);
+        // BstPair b=IsBst(root);
+        // System.out.println(b.isbst);
+        System.out.println(balanced2(root));
     }
     public static void knodes(Node node ,int k){
         if(k<-1)return;
@@ -269,6 +295,264 @@ public class Main {
                 }
             }
         }
+    }
+    public static void zigzag(Node node){
+        Stack<Node> pr=new Stack<Node>();
+        Stack<Node> ch=new Stack<Node>();
+        pr.push(node);
+        int level=1;
+        while(pr.size()!=0){
+            node =pr.pop();
+            System.out.print(node.data+" ");
+            if(level%2==1){
+                if(node.left!=null)ch.push(node.left);
+                if(node.right!=null)ch.push(node.right);
+            }
+            else {
+                if(node.right!=null)ch.push(node.right);
+                if(node.left!=null)ch.push(node.left);
+            }
+            if(pr.isEmpty()){
+                System.out.println();
+                pr=ch;
+                ch=new Stack<Node>();
+                level++;
+            }
+        }
+    }
+    public static int leafcount(Node node){
+        int count=0;
+        if(node==null)return 0;
+        count=leafcount(node.left)+leafcount(node.right);
+        if(node.left==null&&node.right==null)count++;
+        return count;
+    }
+    public static void topview(Node node){
+        
+        if(node.left!=null)leftview(node);
+        System.out.print(node.data+" ");
+        if(node.left!=null)rightview(node,0);
+        
+    }
+    public static void leftview(Node node){
+        // List<Pair> list =new ArrayList<>();
+        // Queue<Pair> x=new LinkedList<>();
+        // x.add(new Pair(node,0));
+        
+        // while(!x.isEmpty()&&node!=null){
+        //     int size=x.size();
+        //     int level=0;
+        //     for(int i=0;i<size;i++){
+        //         Pair top=x.remove();
+        //         if(i==0){
+        //             if(list.isEmpty())list.add(top);
+        //             else{
+        //                 Pair temp=list.get(list.size()-1);
+        //                 if(temp.state)
+        //             }
+        //         }
+        //         if(top.node.left!=null)x.add(top);
+        //         if(top.right!=null)x.add(top.right);
+    
+                
+        //     }
+        // }
+        // System.out.println(list);
+    }
+    public static void rightview(Node node,int level){
+        ArrayList<Integer> list = new ArrayList<>();
+        while(node.left!=null||node.right!=null){
+            int currlevel = level;
+            if(node.right!=null){
+                node=node.right;
+                level++;
+            }
+            else{
+                if(node.left!=null){
+                    node=node.left;
+                    level--;
+                }
+            }
+            if(currlevel<level)list.add(node.data);
+        }
+        for(int item:list)System.out.print(item+" ");
+        
+    }
+    public static void pathToLeafFromRoot(Node node,String path,int sum,int lo,int hi)  {
+        if(node==null)return;
+        if(node.left==null&&node.right==null){
+            sum+=node.data;
+            if(lo<=sum&&sum<=hi){
+                System.out.println(path+node.data);
+            }
+            return;
+        }
+        pathToLeafFromRoot(node.left,path+node.data+" ",+sum+node.data,lo,hi);
+        pathToLeafFromRoot(node.right,path+node.data+" ",+sum+node.data,lo,hi);
+    }
+    public static Node leftclonedtree(Node node){
+        if(node ==null)return null;
+        // postorder apporach
+        Node left=leftclonedtree(node.left);
+        Node right=leftclonedtree(node.right);
+        // just create a new node with data same as the node data and connect it with left node now connect right with the node and connect the node's left with new node
+        Node temp=new Node(node.data,left,null);
+        node.left=temp;
+        node.right=right;
+        // return the node to its upper parrent.
+        return node;
+    }
+    public static void leftclonedtree2(Node node){
+        if(node ==null)return;
+        // preorder apporach
+        Node temp=new Node(node.data,node.left,null);
+        node.left=temp;
+        leftclonedtree2(node.left.left);
+        leftclonedtree2(node.right);
+        // not working.
+        // absolutely working eassy pizzy boiiii.
+        
+    }
+    public static void backfromclonedtree(Node node) {
+        // totally my apporoach 
+        // kuch nhi krna bas node ke nexxt ke next call kro(which is non duplicate).
+        // phir join it with the node and phir kya jake hanime.tv dekho baki kam recurrsion leap of faith pe chodd do.
+        // this is how its done and thats how she likes it.
+        if(node==null) return;
+        Node temp=node.left.left;
+        node.left=temp;
+        backfromclonedtree(node.left);
+        backfromclonedtree(node.right);
+    }
+    public static Node backfromclonedtree2(Node node){
+        if(node==null)return null;
+        // post order appraoch.
+        Node left=backfromclonedtree2(node.left.left);
+        Node right=backfromclonedtree2(node.right);
+        node.left=left;
+        node.right=right;
+        return node;
+    }
+    public static void SingleChildNode(Node node){
+        if(node==null)return;
+        if(node.left!=null&&node.right==null||node.left==null&&node.right!=null){
+            System.out.println(node.data);
+        }
+        SingleChildNode(node.left);
+        SingleChildNode(node.right);
+
+    }
+    public static Node removeleafs(Node node) {
+        if(node==null)return null;
+        if(node.left==null&&node.right==null)return null;
+        node.left=removeleafs(node.left);
+        node.right=removeleafs(node.right);
+        return node;
+    }
+    public static int diameter(Node node){
+        int d=0;
+        if(node.left!=null)d+=1;
+        if(node.right!=null)d+=1;
+        d+=height(node.left)+height(node.right);
+        return d;
+        // works only when diameter passes throug root.
+    }
+    static int tilt=0;
+    public static int  tiltatree(Node node){
+        if(node==null)return 0;
+        int ls=tiltatree(node.left);
+        int rs=tiltatree(node.right);
+        int temp=Math.abs(ls-rs);
+        tilt+=temp;
+        int sum=(ls+rs+node.data);
+        return sum;
+    }
+    public static void rightView(Node node){
+        List<Integer> list =new ArrayList<>();
+        Queue<Node> x=new LinkedList<>();
+        x.add(node);
+        while(!x.isEmpty()&&node!=null){
+            int size=x.size();
+            for(int i=0;i<size;i++){
+                Node top=x.remove();
+                if(i+1==size)list.add(top.data);
+                if(top.left!=null)x.add(top.left);
+                if(top.right!=null)x.add(top.right);
+            }
+        }
+        for(int item:list)System.out.print(item+" ");
+        System.out.println();
+        
+    }
+    public static class BstPair{
+        boolean isbst;
+        int min;
+        int max;
+        int size;
+    }    
+    public static BstPair IsBst(Node node){
+        if(node== null){
+            BstPair b = new BstPair();
+            b.isbst=true;
+            b.min=Integer.MAX_VALUE;
+            b.max=Integer.MIN_VALUE;
+            return b;
+        }
+        BstPair lp=IsBst(node.left);
+        BstPair rp=IsBst(node.right);
+        
+        BstPair mp=new BstPair();
+        mp.isbst=lp.isbst&&rp.isbst&&node.data>=lp.max&&node.data<=rp.min;
+        mp.min=Math.min(node.data,Math.min(lp.min,rp.min));
+        mp.max=Math.max(node.data,Math.max(lp.max,rp.max));
+        return mp;
+    }
+    public static boolean balanced(Node node){
+        if(node==null)return true;
+	    boolean left=balanced(node.left);
+	    boolean right=balanced(node.right);
+	    boolean m;
+	    m=left&&right&&height(node.left)-height(node.right)<=1;
+	    return m;
+    }
+    static boolean blnc=true;
+    public static int balanced2(Node node){
+        if(node==null)return 0;
+        int lh=balanced2(node.left);
+        int rh=balanced2(node.right);
+        if(Math.abs(lh-rh)>1)blnc=false;
+        // calculate the hieght but make changes in the variable blnc 
+        int h=Math.max(lh,rh);
+        h+=1;
+        return h;
+    }
+    static int maxh=0;
+    public static BstPair largestbst(Node node){
+        if(node== null){
+            BstPair b = new BstPair();
+            b.isbst=true;
+            b.min=Integer.MAX_VALUE;
+            b.max=Integer.MIN_VALUE;
+            b.size=0;
+            return b;
+        }
+        BstPair lp=largestbst(node.left);
+        BstPair rp=largestbst(node.right);
+        
+        BstPair mp=new BstPair();
+        mp.isbst=lp.isbst&&rp.isbst&&node.data>=lp.max&&node.data<=rp.min;
+        mp.size=Math.max(lp.size,rp.size)+1;
+        mp.min=Math.min(node.data,Math.min(lp.min,rp.min));
+        mp.max=Math.max(node.data,Math.max(lp.max,rp.max));
+
+        if(mp.isbst){
+            mp.size=lp.size+rp.size+1;
+        }
+        else if(lp.size>rp.size){
+            mp.size=lp.size;
+        }
+        else mp.size=rp.size;
+        return mp;
     }
 }
 
