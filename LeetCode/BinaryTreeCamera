@@ -1,0 +1,47 @@
+package LeetCode;
+public class CameraInTree{
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+        Node(int data){
+            this.data = data;
+            left=right=null;
+        }
+    }
+    public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left= new Node(4);
+        root.left.right= new Node(5);
+        root.right.left= new Node(6);
+        root.right.right= new Node(7);
+        int camera=countcamera(root);
+        System.out.println("no of camera = " + camera);
+    }
+    static int camera;
+    public static int  countcamera(Node node){
+        camera=0;
+        if(solution(node)==-1) camera++;
+        return camera;
+        // 1 you are covered 
+        //  -1 you need camera 
+        // 0 you have camera
+    }
+    public static int  solution(Node node) {
+        if(node==null)return 1;
+        
+        int left=solution(node.left);
+        int right=solution(node.right);
+        if(left==-1||right==-1){
+            //  if your any of the child's camera is missing then increment the camera count and return 0 that you have the camera now
+            camera++;
+            return 0;
+        }
+        // if any of your child is having the camera then you are covered and return 1
+        if(left==0||right==0)return 1;
+        // if your children are covered by someone and you need the camera so return -1
+        return -1;
+    }
+}
