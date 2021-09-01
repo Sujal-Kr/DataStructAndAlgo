@@ -296,6 +296,16 @@ public class Main {
             }
         }
     }
+    public static void mirror2(Node node) {
+
+        // recurrsive method
+        if (node == null)return ;
+        Node temp=node.left;
+        node.left = node.right;
+        node.right=temp;
+        mirror2(node.left);
+        mirror2(node.right);
+    }
     public static void zigzag(Node node){
         Stack<Node> pr=new Stack<Node>();
         Stack<Node> ch=new Stack<Node>();
@@ -514,7 +524,7 @@ public class Main {
 	    boolean m;
 	    m=left&&right&&height(node.left)-height(node.right)<=1;
 	    return m;
-    }
+    }  
     static boolean blnc=true;
     public static int balanced2(Node node){
         if(node==null)return 0;
@@ -554,5 +564,25 @@ public class Main {
         else mp.size=rp.size;
         return mp;
     }
+    static List<Integer> list;
+	public static long treePathsSum(Node node)
+    {
+        list=new ArrayList<>();
+        int sum=0;
+        solution(node,0);
+        for(int item:list)sum+=item;
+        return (long)sum;
+    }
+    public static void solution(Node node,int sum){
+        if(node==null)return;
+        if(node.left==null&&node.right==null){
+            sum=sum*10+node.data;
+            list.add(sum);
+            return;
+        }
+        solution(node.left,sum*10+node.data);
+        solution(node.right,sum*10+node.data);
+    }
+   
 }
 
