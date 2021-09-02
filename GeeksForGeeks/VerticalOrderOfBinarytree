@@ -1,0 +1,72 @@
+package GeeksForGeeks;
+import java.util.Map;
+import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Queue;
+
+public class VerticalOrderTraveral {
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+        Node(int data){
+            this.data = data;
+            left=right=null;
+        }
+    }
+    public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left= new Node(4);
+        root.left.right= new Node(5);
+        root.right.left= new Node(6);
+        root.right.right= new Node(7);
+        verticalOrder(root);
+    }
+    // totally my appraoch ezzy pizzy boi just use a hashmap for storing the data in correct order if there is a new level then create a new key and place the data in it , if it's allready there then simply call the list using the key then place the data in it 
+    //  but it will fail at certain test case.
+    public static void verticalOrder(Node root) {
+        // Map<Integer, ArrayList<Integer>> map = new HashMap<>();
+        // solution(root,0,map);
+        // System.out.println(map);
+        System.out.println(solution(root));
+    }
+    public static class pair{
+        int level;
+        Node node;
+        pair(Node node,int level){
+            this.node = node;
+            this.level = level;
+        }
+    }
+    public static ArrayList<Integer> solution(Node node) {
+        Map<Integer, ArrayList<Integer>> map = new HashMap<>();
+        Queue<pair> q=new LinkedList<>();
+        q.add(new pair(node,0));
+        
+        
+        int minlevel=Integer.MAX_VALUE;
+        int maxlevel=Integer.MIN_VALUE;
+        while(!q.isEmpty()) {
+            int size = q.size();
+            for(int i=0; i<size; i++) {
+                pair top=q.remove();
+                minlevel=Math.min(minlevel,top.level);
+                maxlevel=Math.max(maxlevel,top.level);
+                map.putIfAbsent(top.level,new ArrayList<>());
+                map.get(top.level).add(top.node.data);
+                if(top.node.left!=null)q.add(new pair(top.node.left,top.level-1));
+                if(top.node.right!=null)q.add(new pair(top.node.right,top.level+1));
+            }
+        }
+        ArrayList<Integer> x=new ArrayList<>();
+        for(int i=minlevel; i<maxlevel; i++){
+            for(int item:map.get(i))x.add(item);
+        }
+        
+        // System.out.println(map);
+        return x;
+    }
+}
