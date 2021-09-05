@@ -1,0 +1,84 @@
+package GeeksForGeeks;
+import java.util.Map;
+import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Queue;
+
+public class Topview {
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+        Node(int data){
+            this.data = data;
+            left=right=null;
+        }
+    }
+    public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left= new Node(4);
+        root.left.right= new Node(5);
+        root.right.left= new Node(6);
+        root.right.right= new Node(7);
+        System.out.println(solution(root));
+    }
+   
+    public static class pair{
+        int level;
+        Node node;
+        pair(Node node,int level){
+            this.node = node;
+            this.level = level;
+        }
+    }
+    public static ArrayList<Integer> solution(Node node) {
+        Map<Integer, ArrayList<Integer>> map = new HashMap<>();
+        Queue<pair> q=new LinkedList<>();
+        q.add(new pair(node,0));
+        
+        
+        int minlevel=Integer.MAX_VALUE;
+        int maxlevel=Integer.MIN_VALUE;
+        while(!q.isEmpty()) {
+            int size = q.size();
+            for(int i=0; i<size; i++) {
+                pair top=q.remove();
+
+                minlevel=Math.min(minlevel,top.level);
+                maxlevel=Math.max(maxlevel,top.level);
+
+                if(!map.containsKey(top.level)){
+                    map.put(top.level,new ArrayList<Integer>());
+                    map.get(top.level).add(top.node.data);
+                }
+                
+                if(top.node.left!=null)q.add(new pair(top.node.left,top.level-1));
+                if(top.node.right!=null)q.add(new pair(top.node.right,top.level+1));
+            }
+        }
+        ArrayList<Integer> x=new ArrayList<>();
+        for(int i=minlevel; i<maxlevel; i++){
+            for(int item:map.get(i))x.add(item);
+        }
+        
+        System.out.println(map);
+        return x;
+    }
+    static void solution(Node node, int level, Map<Integer, ArrayList<Integer>> map) {
+        if(node==null)return;
+        if(!map.containsKey(level)){
+            ArrayList<Integer> x=new ArrayList<>();
+            map.put(level, x);
+            x.add(node.data);
+        }
+        else{
+            ArrayList<Integer> y=map.get(level);
+            y.add(node.data);
+        }
+        solution(node.left, level-1,map);
+        solution(node.right, level+1,map);
+    }
+}
