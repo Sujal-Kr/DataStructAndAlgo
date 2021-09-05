@@ -1,0 +1,79 @@
+package GeeksForGeeks;
+import java.util.ArrayList;
+import java.util.List;
+public class MakeZeros {
+    public static void main(String[] args) {
+        int[][] matrix={{0, 16 ,0 ,9 ,6 ,18},
+        {4, 4, 7, 8, 8, 0}, 
+        {11, 4, 17, 12, 0, 18},
+        {6, 14, 12, 12, 4, 3}};
+        // 0 16 0 9 6 18
+    //     4 4 7 8 8 0
+    //     11 4 17 12 0 18
+    //     6 14 12 12 4 3
+
+    // 20 0 32 0 6 0
+    // 0 4 0 8 0 44
+    // 11 4 17 0 42 0
+    // 6 14 12 12 0 3
+    
+        solution(matrix);
+        for(int[] array : matrix){
+            for(int item:array){
+                System.out.print(item+"\t");
+            }
+            System.out.println();   
+        }
+        
+    }
+    public static class pair{
+        int r;
+        int c;
+        pair(int r, int c){
+            this.r=r;
+            this.c=c; 
+        }
+    }
+    public static void solution(int[][] m) {
+        List<pair> list=new ArrayList<pair>();
+        int [][] d=new int[m.length][m[0].length];
+        for(int i=0; i<d.length; i++){
+            for(int j=0; j<d[0].length;j++){
+                d[i][j]=m[i][j];
+            }
+        }
+       
+        for(int i=0; i<m.length; i++) {
+            for(int j=0; j<m[0].length; j++) {
+                if(m[i][j]==0)list.add(new pair(i, j));
+            }
+        }
+        for(pair item : list) {
+            int row = item.r;
+            int col = item.c;
+            int upper=0;
+            int lower=0;
+            int left=0;
+            int right=0;
+            if(row-1>-1){
+                upper=d[row-1][col];
+                m[row-1][col]=0;
+            }
+            if(row+1<m.length){
+                lower=d[row+1][col];
+                m[row+1][col]=0;
+            }
+            if(col-1>-1){
+                left=d[row][col-1];
+                m[row][col-1]=0;
+            }
+            if(col+1<m[0].length){
+                right=d[row][col+1];
+                m[row][col+1]=0;
+            }
+            m[row][col] =upper+lower+right+left;
+        }
+        System.out.println();
+    }
+    
+}
