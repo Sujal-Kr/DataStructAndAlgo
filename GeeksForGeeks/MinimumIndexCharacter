@@ -1,0 +1,31 @@
+package GeeksForGeeks;
+import java.util.Map;
+import java.util.HashMap;
+public class MinimumIndexedCharacter {
+    public static void main(String[] args) {
+        String str="geeksforgeeeks";
+        String patt="set";
+        int index=solution(str,patt);
+        System.out.println(index);
+    }
+
+    public static int solution(String str, String patt) {
+        Map<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<str.length();i++){
+            char temp=str.charAt(i);
+            if(!map.containsKey(temp))map.put(temp,i);
+        }
+       
+        int ans=Integer.MAX_VALUE;
+        boolean found=false;
+        for(int i=0;i<patt.length();i++){
+            char temp= patt.charAt(i);
+            if(map.get(temp)!=null){
+                ans=Math.min(ans,map.get(temp));
+                found=true;
+            }
+        }
+        return found?ans:-1;
+    }
+    
+}
