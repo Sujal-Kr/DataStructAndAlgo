@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin:0;
+}
+.menu-bar{
+    height: 3rem;
+    background-color: #218c74;
+    display:flex;
+    align-items: flex-end;
+}
+.page-action{
+    margin:0.5rem; 
+    color:#f1f2f6;
+}
+.cell-prop-cont{
+    height: 3rem;
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+}
+.cell-prop-cont .material-symbols-outlined{
+    margin:0.4rem;
+}
+.cell-prop-cont select{
+    margin:0.5rem;
+    border: solid black;
+    border-radius: 4px ;
+}
+.cell-prop-cont > *:hover{
+    cursor:pointer;
+}
+.color-selector{
+    display: none;
+}
+.formula-action-cont{
+    height:3rem;
+    background-color:  #ecf0f1;
+    display:flex;
+    align-items:center;
+    gap: 1rem;
+}
+.formula-action-cont > input{
+    outline: none
+}
+.address-bar{
+    width:3rem;
+    margin-left: 0.5rem;
+}
+.formula-bar{
+    width:90%;
+}
+
+.sheet-action-cont{
+    height:3rem;
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+}
+.sheet-folder-cont{
+    height:1rem;
+    width: calc(100vw - 2rem);
+    height: 80%;
+    display: flex;
+    align-items:flex-end;
+}
+.sheet-folder{
+    height: 2rem;
+    width:3rem;
+    text-decoration: underline;
+    font-weight:bold;
+    text-decoration-thickness :3px;
+    font-size: 0.9rem;
+}
+.grid-cont{
+    position: relative;
+    height: calc(100vh - 3rem - 3rem - 3rem - 3rem);
+    overflow: scroll;
+    background-color:#ecf0f1;
+}
+
+.dummy-box{
+    height:2rem;
+    width: 2rem;
+    background-color: grey;
+    position: fixed;
+    z-index: 3;
+}
+.cells-cont{
+    position: absolute;
+    top:0rem;
+    left:2rem;   
+}
+.address-row-cont{
+    display: flex;
+    position: sticky;
+    top:0rem;
+    left:2rem;
+}
+
+.address-column-cont{
+
+    position: sticky;
+    top:2rem;
+    left:0rem;
+}
+.address-col{
+    border: 1px solid grey;
+    width:2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.address-row{
+    width:5rem;
+    height: 2rem;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row-cont{
+    display: flex;
+}
+.cell{
+    border: 1px solid #dfe4ea;
+    width:5rem;
+    height:2rem;
+    outline: none;
+}
+.color-prop{
+    position: relative;
+}
+.color-prop > input{
+    position: absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    width:100%
+}
