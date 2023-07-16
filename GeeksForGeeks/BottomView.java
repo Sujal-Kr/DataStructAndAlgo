@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.HashMap;
 
-public class BottomViewOfBinaryTree {
+public class BottomView{
     public static class Node{
         int data;
         Node left;
