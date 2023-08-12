@@ -1,4 +1,4 @@
-package Practices;
+
 
 public class AppConfig {
     private AppConfig(){

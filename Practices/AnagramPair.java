@@ -1,4 +1,4 @@
-package Practices;
+
 public class AnagramPair {
     static boolean Anagram(String s ,String x){
         boolean result = true;

@@ -1,5 +1,4 @@
 //Using two pointer concept.. to find the sum...
-package Practices;
 import java.util.*;
 public class Pract2 {
     public static void main(String[] args) {

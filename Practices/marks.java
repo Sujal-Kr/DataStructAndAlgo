@@ -1,4 +1,4 @@
-package Practices;
+
 class inputMarks{
     int Eng;
     int maths;

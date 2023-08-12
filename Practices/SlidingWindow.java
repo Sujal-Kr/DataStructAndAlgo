@@ -1,4 +1,4 @@
-package Practices;
+
 import java.util.*;
 public class SlidingWindow {
     public static int max(LinkedList<Integer> x) {

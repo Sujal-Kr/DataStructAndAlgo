@@ -1,4 +1,4 @@
-package Practices;
+
 import java.util.Scanner;
 public class TralingZero {
     static int fact(int n){

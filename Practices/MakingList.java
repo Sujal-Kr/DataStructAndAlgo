@@ -1,4 +1,4 @@
-package Practices;
+
 
 public class MakingList {
   Node head;

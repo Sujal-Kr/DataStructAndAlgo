@@ -1,4 +1,4 @@
-package Practices;
+
 class Perimeter{
     int length;
     int breadth;

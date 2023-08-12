@@ -1,4 +1,4 @@
-package Practices;
+
 import java.util.*;
 public class TriangesCount {
     static boolean count(int x,int y,int z){

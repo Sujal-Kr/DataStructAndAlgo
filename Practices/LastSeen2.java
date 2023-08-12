@@ -1,5 +1,4 @@
 
-package Practices;
 import java.util.*;
 public class LastSeen2 {
     public static void main(String[] args) {

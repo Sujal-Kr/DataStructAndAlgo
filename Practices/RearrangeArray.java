@@ -1,4 +1,4 @@
-package Practices;
+
 import java.util.Scanner;
 public class RearrangeArray {
     public static void main(String[] args) {

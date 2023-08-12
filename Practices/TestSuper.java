@@ -1,4 +1,4 @@
-package Practices;
+
 class Abc{
     Abc(){
         System.out.println("A is created");

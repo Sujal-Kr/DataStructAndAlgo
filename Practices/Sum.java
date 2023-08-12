@@ -1,4 +1,4 @@
-package Practices;
+
 
 public class Sum {
     boolean Twosum(int a[],int x,int i){

@@ -1,4 +1,3 @@
-package Practices;
 import java.util.*;
 public class SmallestmissingNo {
     public static int max(LinkedList<Integer> x) {

@@ -1,4 +1,4 @@
-package Practices;
+
 public class StrongPass {
     public static void main(String[] args) {
         String password="1!z2";

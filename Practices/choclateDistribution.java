@@ -1,4 +1,4 @@
-package Practices;
+
 import java.util.*;
 public class choclateDistribution {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Practices;
+
 
 public class RevSent {
     public static void main(String[] args) {

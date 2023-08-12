@@ -1,4 +1,3 @@
-package Practices;
 
 public class zzzzz {
     public static void main(String[] args) {

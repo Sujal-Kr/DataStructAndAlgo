@@ -1,4 +1,4 @@
-package Practices;
+
 import java.util.*;
 public class Testcases {
     public static void main(String[] args) {

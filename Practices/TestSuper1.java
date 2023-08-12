@@ -1,4 +1,4 @@
-package Practices;
+
 class A{
     String color="white";
 }

@@ -1,5 +1,4 @@
 //counting the no of steps till i get zero as THE result.
-package Practices;
 import java.util.Scanner;
 public class Pract{
     public static void main(String[] args) {
