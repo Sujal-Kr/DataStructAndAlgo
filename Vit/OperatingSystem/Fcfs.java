@@ -48,6 +48,7 @@ public class Fcfs {
         for(int i=0;i<n;i++){
             System.out.println("p"+p_id[i]+"\t"+at[i]+"\t"+bt[i]+"\t"+ct[i]+"\t"+tat[i]+"\t"+wt[i]);
         }
+        in.close();
     }
 
     private static void compute_waitingTime(int[] tat, int[] wt, int[] bt) {
