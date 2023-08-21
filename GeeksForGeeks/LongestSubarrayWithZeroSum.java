@@ -2,7 +2,7 @@ package GeeksForGeeks;
 import java.util.*;
 public class LongestSubarrayWithZeroSum {
     public static void main(String[] args) {
-        int arr[]={15,-2,2,-8,1,7,10,23};
+        // int arr[]={15,-2,2,-8,1,7,10,23};
         int arr1[]={-1, 1, -1, 1};
         System.out.println(solution(arr1));
     }
