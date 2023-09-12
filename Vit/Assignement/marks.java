@@ -22,6 +22,8 @@ public class marks {
             System.out.println("Invalid Input");
         }
         System.out.println("Your Grade: " + grade);
+        in.close();
+
     }
     
 

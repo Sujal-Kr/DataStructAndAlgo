@@ -2,31 +2,26 @@ package GeeksForGeeks;
 import java.util.*;
 public class MinimizeTheHieght{
     public static void main(String[] args) {
-        int Arr[] = {3, 9, 12, 16, 20};
-        int ans=getMinDiff(Arr,3);
-        System.out.println(ans);
+        int arr[] = {2 ,6, 3, 4, 7, 2, 10, 3, 2, 1};
+        int ans=getMinDiff(arr,5);
+        System.out.println("\n"+ans);
     }
-    static int getMinDiff(int[] x ,int k) {
-        int n=x.length;
-        Arrays.sort(x);
-        int i=0;
-        int min=Integer.MAX_VALUE;
-        while(i<n/2){
-            x[i]+=k;
-            min=Math.min(min,x[i]);
-            i++;
+    public static int getMinDiff(int[] arr ,int k) {
+        int n=arr.length;
+
+        for(int i=0;i<n;i++){
+            if(arr[i]>k)arr[i]-=k;
+            else arr[i]+=k;
         }
-        int max=Integer.MIN_VALUE;
-        while(i<n){
-            if(x[i]>=k)x[i]-=k;
-            else x[i]+=k;
-            max=Math.max(max,x[i]);
-            i++;
-        }
-        for(int item:x){
+        for(int item:arr){
             System.out.print(item+" ");
         }
         System.out.println();
-        return (max-min);
+        Arrays.sort(arr);
+        for(int item:arr){
+            System.out.print(item+" ");
+        }
+
+        return arr[n-1]-arr[0];
     }
 }

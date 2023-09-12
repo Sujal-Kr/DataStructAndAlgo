@@ -44,11 +44,31 @@ public class Fcfs {
         compute_completeTime(ct,at,bt);
         compute_turnAroundTime(ct,at,tat);
         compute_waitingTime(tat,wt,bt);
-        System.out.println("p_id\t"+"at\t"+"bt\t"+"ct\t"+"tat\t"+"wt\t");
-        for(int i=0;i<n;i++){
-            System.out.println("p"+p_id[i]+"\t"+at[i]+"\t"+bt[i]+"\t"+ct[i]+"\t"+tat[i]+"\t"+wt[i]);
-        }
+        display_ganttChart(p_id);
+        compute_agtTime(wt,tat);
+
+        
         in.close();
+    }
+
+    private static void display_ganttChart(int[] p_id) {
+        System.out.print("Gantt Chart:");
+        for(int item:p_id){
+            System.out.print("P"+item+" ");
+        }
+        System.out.println();
+    }
+
+    private static void compute_agtTime(int[] wt, int[] tat) {
+        float total_wt=0f;
+        float total_tat=0f;
+        for(int i=0;i<wt.length;i++){
+            total_wt+=wt[i];
+            total_tat+=tat[i];
+        }
+        System.out.println("Average Waiting Time:"+total_wt/wt.length);
+        System.out.println("Average Turn Around Time"+total_tat/tat.length);
+
     }
 
     private static void compute_waitingTime(int[] tat, int[] wt, int[] bt) {
