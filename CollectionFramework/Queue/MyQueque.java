@@ -1,4 +1,4 @@
-package CollectionFramework.Queue;
+ package CollectionFramework.Queue;
 import CollectionFramework.LinkedList.MyLinkedList.node;
 public class MyQueque {
     node head,rear;
@@ -16,7 +16,7 @@ public class MyQueque {
     int dequeue(){
         node temp=head;
         if(head==null){
-            return 0;
+            return -1;
         }
         head=head.next;
         if(head==null){

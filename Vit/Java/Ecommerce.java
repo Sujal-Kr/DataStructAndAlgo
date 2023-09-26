@@ -10,8 +10,12 @@ class User {
         this.name=name;
         this.email=email;
     }
-    User(){
-
+    
+    void polymorphicMethod(){
+        System.out.println("i am a user");
+    }
+    protected void setId(int id){
+        this.userId = id;
     }
     int getId(){
         return this.userId;
@@ -33,7 +37,7 @@ class product{
 class Buyer extends User {
     ArrayList<product> cart=new ArrayList<>();
     Buyer(String name, String email) {
-        super(name, email);
+        super(name,email);
     }
     
     void buyProducts(String name) {
@@ -42,6 +46,9 @@ class Buyer extends User {
         System.out.println("Purchased");
     }
 
+    void polymorphicMethod(){
+        System.out.println("i am a buyer");
+    }
     
 }
 
@@ -50,10 +57,14 @@ class Seller extends User {
     Seller(String name, String email) {
         super(name, email);
     }
+    
     void sellProducts(String name,int price) {
         product item=new product(name,price);
         product_sold.add(item);
         System.out.println("sold");
+    }
+    void polymorphicMethod(){
+        System.out.println("i am a seller");
     }
 }
 class PremiumUser extends Buyer {
@@ -66,12 +77,14 @@ class PremiumUser extends Buyer {
 
 public class Ecommerce {
     public static void main(String[] args) {
+        User user = new User("suman","simon@gmail.com");
+        user.polymorphicMethod();
+
         Seller seller = new Seller("Raju","sellerOp@hotmail.com");
-        seller.sellProducts("Football",200);
+        seller.polymorphicMethod();
+        
         Buyer buyer = new Buyer("Sujal","xyz@gmail.com");
-        buyer.buyProducts("I Phone");
-        for(product item: buyer.cart){
-            System.out.print(item.pName);
-        }
+        buyer.polymorphicMethod();
+        
     }
 }

@@ -2,7 +2,8 @@ package GeeksForGeeks;
 import java.util.Stack;
 public class EvalutionOfPostfix {
     public static void main(String[] args) {
-        String exp="231*+9-";
+        String exp="23+6*5+89+/";
+        String post="623+-382/+*2^3+";
         System.out.println(evalution(exp));
     }
     private static int evalution(String exp) {

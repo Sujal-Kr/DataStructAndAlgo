@@ -39,7 +39,7 @@ public class Mylist {
         }
         return head;
     }
-public static Node remove(Node head,int index){
+    public static Node remove(Node head,int index){
     Node temp=head;
     if(index==0){
         head=head.next;
