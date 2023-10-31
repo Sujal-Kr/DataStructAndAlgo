@@ -41,7 +41,8 @@ public class MultiStack {
                         arr[third]=data;
                     }
                     break;
-            default:throw new Error("Invalid stack order");
+            default:break;
+                    
         }
     }
     int pop(int stackOrder){
@@ -68,7 +69,7 @@ public class MultiStack {
                         third--;
                     }
                     break;
-            default:throw new Error("Invalid stack order");
+            default:break;
         }
         return poppedEle;
     }
@@ -80,13 +81,13 @@ public class MultiStack {
     }
     
     public static void main(String[] args) {
-        MultiStack stack=new MultiStack(5);
-        stack.push(0, 0);
+        MultiStack stack=new MultiStack(3);
+        // stack.push(0, 0);
         stack.push(1, 34);
         stack.push(2, 45);
         stack.push(3, 67);
-        stack.push(3, 21);
+        
         System.out.println(stack.pop(3));
-        System.out.println(stack.pop(3));
+        
     }
 }

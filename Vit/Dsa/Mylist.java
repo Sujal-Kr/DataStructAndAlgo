@@ -34,8 +34,8 @@ public class Mylist {
                 i++;
                 temp=temp.next;
             }
+            x.next=temp.next;
             temp.next=x;
-            x=temp.next;
         }
         return head;
     }
@@ -69,7 +69,8 @@ public class Mylist {
         head.next.next = new Node(3);
         head=insert(head, 0, 0);
         print(head);
-        head=remove(head, 1);
+        // head=remove(head, 1);
+        head=insert(head, 3, 17);
         print(head); 
 
     }
