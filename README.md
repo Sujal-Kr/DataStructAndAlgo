@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Sujal-Kr
 - 👀 I’m interested in Web/App Devlopement/Coding.
-- 🌱 I’m currently learning Java
+- 🌱 I’m currently learning Nextjs 
 - 💞️ I’m looking to collaborate on everything possible.
 - 📫 How to reach me @_noya.san/sunnykumarcms45@gmail.com
 
