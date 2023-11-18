@@ -16,6 +16,22 @@ public class MyDoublyList {
             next=prev=null; 
         }
     }
+    void revere(){
+        Node curr=head;
+        Node prev=null;
+        Node after;
+        while(curr!=null){
+            // reverse 
+            after=curr.next;
+            curr.next=prev;
+            curr.prev=after;
+
+            // update
+            prev=curr;
+            curr=after;
+        }
+        head=prev;
+    }
     void add(int data){
         Node newNode = new Node(data);
         Node temp=head;
@@ -51,8 +67,9 @@ public class MyDoublyList {
         list.add(6);
         list.add(3,45);
         list.add(7);
-        list.travesal();
-        list.reverseTraversal();
+        // list.travesal();
+        list.revere();
+        // list.travesal();
 
     }
     /**

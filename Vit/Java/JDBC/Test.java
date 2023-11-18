@@ -1,7 +1,4 @@
 package Vit.Java.JDBC;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.Properties;
 import java.sql.*;
 
 public class Test {
@@ -11,6 +8,7 @@ public class Test {
             String url="jdbc:postgresql://localhost:5432/Sujal";
             String user="postgres";
             String pass="noob@coder";
+            Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection(url, user, pass);
             System.out.println(con);
             if(con!=null){

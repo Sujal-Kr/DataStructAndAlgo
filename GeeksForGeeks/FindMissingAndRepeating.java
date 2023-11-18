@@ -13,22 +13,16 @@ public class FindMissingAndRepeating {
         for(int i=0; i<arr.length; i++) {
             int index=Math.abs(arr[i])-1;
             if(arr[index]<0){
-                ans[0]=arr[i]*-1;
-                break;
+                ans[0]=index+1;
             }else{
                 arr[index]=-arr[index];
             }
         }
-        boolean postive = false;
         for(int i=0; i<arr.length; i++) {
             if(arr[i]>0){
-                postive = true;
-                ans[1]=i-1;
+                ans[1]=i+1;
                 break;
             }
-        }
-        if(!postive){
-            System.out.println("max+1");
         }
         return ans;
     }

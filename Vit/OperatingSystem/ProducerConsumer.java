@@ -74,7 +74,7 @@ class Consumer implements Runnable {
         try {
             for (int i = 0; i < 5; i++) {
                 int item = buffer.consume();
-                Thread.sleep(1000); // Simulate some work
+                Thread.sleep(1000); 
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -84,7 +84,7 @@ class Consumer implements Runnable {
 
 public class ProducerConsumer{
     public static void main(String[] args) {
-        SharedBuffer buffer = new SharedBuffer(3);
+        SharedBuffer buffer = new SharedBuffer(10);
         Thread producerThread = new Thread(new Producer(buffer));
         Thread consumerThread = new Thread(new Consumer(buffer));
 

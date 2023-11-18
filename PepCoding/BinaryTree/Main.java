@@ -230,7 +230,7 @@ public class Main {
         // display(root);
         // isBst(root);
         // System.out.println(check);
-        // BstPair b=IsBst(root);
+        BstPair b=IsBst(root);
         // System.out.println(b.isbst);
         System.out.println(balanced2(root));
     }
