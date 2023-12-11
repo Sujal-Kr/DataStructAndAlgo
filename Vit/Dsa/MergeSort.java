@@ -25,8 +25,8 @@ public class MergeSort {
     private static void merge(int arr[], int l, int mid, int r) {
         // This portion of code is responsible for merging two sorted subarrays into a single sorted
         // array.
-        int n1 = mid - l + 1;
-        int n2 = r - mid;
+        int n1 = mid-l+1;
+        int n2 = r-mid;
         
         int L[] = new int[n1];
         int R[] = new int[n2];
@@ -38,11 +38,11 @@ public class MergeSort {
             R[j] = arr[mid + 1 + j];
         }
         
-        int i = 0;
-        int j = 0;
-        int k = l;
+        int i= 0;
+        int j= 0;
+        int k= l;
         
-        while (i < n1 && j < n2) {
+        while (i< n1 && j< n2) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
@@ -52,7 +52,6 @@ public class MergeSort {
             }
             k++;
         }
-        
         while (i < n1) {
             arr[k] = L[i];
             i++;

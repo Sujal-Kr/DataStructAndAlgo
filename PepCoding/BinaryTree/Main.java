@@ -214,7 +214,7 @@ public class Main {
         // zigzag(root);
         // System.out.println(leafcount(root));
         // topview(root);
-        // pathToLeafFromRoot(root,"",0,150,250);
+        pathToLeafFromRoot(root,"",0,150,250);
         // leftclonedtree2(root);
         // linear(root);
         // System.out.println();

@@ -52,6 +52,7 @@ public class my_List {
         myList.add(34);
         myList.add(23);
         myList.add(12);
+        myList.add(12);
         myList.print();
         myList.remove_data(3);
         myList.print();
@@ -59,6 +60,15 @@ public class my_List {
         myList.print();
         myList.remove_data(34);
         myList.print();
-
+        myList.countFrequency( 12);
+    }
+    private int countFrequency(int key) {
+        int count=0;
+        Node temp=head;
+        while(temp!=null) {
+            if(temp.data==key)count++;
+            temp=temp.next;
+        }
+        return count;
     }
 }

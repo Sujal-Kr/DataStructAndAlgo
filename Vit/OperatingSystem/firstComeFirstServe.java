@@ -54,6 +54,7 @@ public  class  firstComeFirstServe {
             total_wt+=list.get(i).wt;
             total_tat+=list.get(i).tat;
         }
+        
         System.out.println("Average TurnAroundTime: " + total_tat/list.size());
         System.out.println("Average WaitingTime: " + total_wt/list.size());
     }

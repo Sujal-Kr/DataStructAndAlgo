@@ -1,5 +1,5 @@
 package Vit.Dsa;
-
+import java.util.*;
 public class MyStack {
     Node head;
     static class Node{
@@ -53,13 +53,30 @@ public class MyStack {
 
     public static void main(String[] args) {
         MyStack stack=new MyStack();
-        stack.print();
-        stack.pop();
+        // stack.print();
+        // stack.pop();
+        // stack.print();
         stack.push(2);
-        stack.print();
         stack.push(23);
         stack.push(56);
-        System.out.println(stack.pop());
+        // System.out.println(stack.pop());
+        stack.print();
+        stack.reverse();
         stack.print();
     }
+    private void reverse() {
+        Node temp=head;
+        ArrayList<Integer> list=new ArrayList<>();
+        while(temp!=null){
+            list.add(temp.data);
+            temp=temp.next;
+        }
+        temp=head;
+        int i=list.size()-1;
+        while(temp!=null){
+            temp.data=list.get(i--);
+            temp=temp.next;
+        }
+    }
+
 }

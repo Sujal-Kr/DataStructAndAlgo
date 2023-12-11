@@ -19,7 +19,7 @@ public class Test {
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(query);
             while(rs.next()){
-                System.out.println(rs.getInt("sal") +" "+rs.getString(2));
+                System.out.println(rs.getInt(1) +" "+rs.getString("job"));
                 System.out.println();
             }
             // Good Practice...

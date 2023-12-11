@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class LineCounter {
     public static void main(String[] args) {
         try{
-
             File file=new File("IamDirectory/Demo.txt");
             if(!file.exists()){
                 System.out.println("Inavlid Path"+file.getPath());

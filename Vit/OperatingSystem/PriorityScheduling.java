@@ -53,7 +53,6 @@ public  class  PriorityScheduling {
         while(count<list.size()){
            for(process item : list){
                 if(!item.completed&&item.at<=curr_time){
-                    
                     pq.add(item);
                     item.completed=true;
                 }

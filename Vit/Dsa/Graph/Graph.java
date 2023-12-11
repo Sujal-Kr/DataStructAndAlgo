@@ -56,7 +56,6 @@ public class Graph {
         System.out.println("lost");
         return false;
     }
-    
     private void dfs(int src){
         boolean visited[]=new boolean[list.size()];
         performDfs(src,visited);
@@ -71,7 +70,11 @@ public class Graph {
             }
         }
     }
-
-    
-
+    public int sumOfDependencies(){
+        int count = 0;
+        for(LinkedList<Integer> item: list){
+            count+=item.size();
+        }
+        return count;
+    }
 }

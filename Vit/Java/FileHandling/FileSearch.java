@@ -10,7 +10,9 @@ public class FileSearch {
                 System.out.println("Invalid path: " + path);
                 System.exit(0);
             }
+            
             for(File item:file.listFiles()) {
+                System.out.println(item);
                 String name=item.getName();
                 if(name.contains(".txt")){
                     System.out.println(item.getName());

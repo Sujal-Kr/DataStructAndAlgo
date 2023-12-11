@@ -8,15 +8,16 @@ public class HouseDrawing extends JFrame  {
     HouseDrawing() {
         setTitle("Home Sweet Home");
         setSize(800, 800);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         setVisible(true);
-        addMouseMotionListener(new MouseAdapter() {
-            public void mouseMoved(MouseEvent e) {
-                int x = e.getX();
-                int y = e.getY();
-                setTitle("cursor is at "+x+ " "+y);
-            }
-        });
+        // addMouseMotionListener(new MouseAdapter() {
+        //     public void mouseMoved(MouseEvent e) {
+        //         int x = e.getX();
+        //         int y = e.getY();
+        //         setTitle("cursor is at "+x+ " "+y);
+        //     }
+        // });
         
     }
     
@@ -40,6 +41,7 @@ public class HouseDrawing extends JFrame  {
         g.setColor(Color.YELLOW);
         g.fillRect(310, 510 , 30, 30);
         g.setColor(Color.BLACK);
+        g.drawOval(50,50,20,20);
         g.setFont(new Font("Pyrus", Font.PLAIN, 30));
         g.drawString("Daddy's Home",50 ,200);
     }

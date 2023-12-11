@@ -29,8 +29,9 @@ public class Pq {
         Pq x=new Pq();
         x.Enqueue(8);
         x.Enqueue(9);
+        x.Enqueue(10);
         x.Deqeue();
         x.Deqeue();
-        x.Deqeue();
+        x.Enqueue(0);
     }
 }
