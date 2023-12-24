@@ -5,6 +5,7 @@ public class SmallestSubarray {
         int[] x= {1, 4, 45, 6, 0, 19};
         int k=51;
         int length=subarraycount(x,k);
+        length=solution(x, k);
         System.out.println("length: " + length);
     }
 
@@ -28,5 +29,20 @@ public class SmallestSubarray {
             // check this for every subarray which meet the given requirement.
         }
         return min;
+    }
+    public static int solution(int arr[],int k){
+       int start=0;
+       int end=0;
+       int sum=0;
+       int min=arr.length-1;
+       
+       while(end<arr.length){
+            while(end<arr.length &&sum<=k)sum+=arr[end++];
+            while(start<arr.length&&sum>k){
+                min=Math.min(min,end-start);
+                sum-=arr[start++];
+            }
+       }
+       return min;
     }
 }

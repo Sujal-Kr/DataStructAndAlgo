@@ -15,6 +15,7 @@ public class BubbleSwap {
         int desc = soltuion(arr.clone(), false);
         int ans=Math.min(asc, desc);
         System.out.println(ans);
+        in.close();
         
     }
 

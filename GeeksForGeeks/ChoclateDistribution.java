@@ -25,4 +25,6 @@ public class ChoclateDistribution {
         min=Math.min(min,(a.peekLast()-a.peekFirst()));
         return min;
     }
+    
+    
 }

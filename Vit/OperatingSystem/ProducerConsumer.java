@@ -74,6 +74,7 @@ class Consumer implements Runnable {
         try {
             for (int i = 0; i < 5; i++) {
                 int item = buffer.consume();
+                System.out.println(item);
                 Thread.sleep(1000); 
             }
         } catch (InterruptedException e) {

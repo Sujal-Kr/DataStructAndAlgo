@@ -71,5 +71,6 @@ public class MazeRunner {
         int[] source = {scanner.nextInt(), scanner.nextInt()};
         int[] target = {scanner.nextInt(), scanner.nextInt()};
         System.out.println(findShortestPath(maze, source, target));
+        scanner.close();
     }
 }
