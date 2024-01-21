@@ -1,0 +1,59 @@
+package GeeksForGeeks;
+
+public class AddOneToTheLinkedList {
+    static class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            this.next=null;
+        }
+    }
+    public static void main(String[] args) {
+        Node first=new Node(9);
+        first.next=new Node(9);
+        first.next.next=new Node(9);
+
+        
+        
+        Node ans=solution(first);
+        print(ans);
+    }
+    private static void print(Node head) {
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        System.out.println();
+    }
+    public static Node solution(Node first) {
+        Node temp1=reverse(first);
+        Node ans=new Node(-1);
+        Node temp=ans;
+        int carry=1;
+        while(temp1!=null){
+            int sum=temp1.data+carry;
+            temp.next=new Node(sum%10);
+            carry=sum>9?1:0;
+            temp1=temp1.next;
+            temp=temp.next;
+        }
+        if(carry!=0)temp.next=new Node(carry);
+        return reverse(ans.next);
+    }
+    public static Node reverse(Node head){
+        Node curr=head;
+        Node prev=null;
+        Node after;
+        
+        while(curr!=null){
+            after=curr.next;
+            curr.next=prev;
+
+            prev=curr;
+            curr=after;
+        }
+        return prev;
+    }
+}

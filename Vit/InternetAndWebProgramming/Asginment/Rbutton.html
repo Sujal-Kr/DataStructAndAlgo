@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div.outer{
+            display: flex;
+            
+            /* flex-direction: column;; */
+        }
+        .input-cont{
+            display: flex;
+            margin: 0 1rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="">Register your opinon</label>
+        <p>How well do you rate the information on this site {where 1 is very poor ,5 is very good }?</p>
+        <div class="outer">
+            <div class="input-cont">
+                <input type="radio" name="rank" id="r1">
+                <p>1</p>
+                <p>very Poor</p>
+            </div>
+            <div class="input-cont">
+                <input type="radio" name="rank" id="r2">
+                <p>2</p>
+                <p>poor</p>
+            </div>
+            <div class="input-cont">
+                <input type="radio" name="rank" id="r3">
+                <p>3</p>
+                <p>avg</p>
+            </div>
+            <div class="input-cont">
+                <input type="radio" name="rank" id="r4">
+                <p>4</p>
+                <p>Good</p>
+            </div>
+            <div class="input-cont">
+                <input type="radio" name="rank" id="r5">
+                <p>5</p>
+                <p>very good</p>
+            </div>
+        </div>
+        <br>
+        <button>Vote Now</button>
+    </form>
+</body>
+</html>
