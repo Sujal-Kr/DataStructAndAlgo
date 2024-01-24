@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    Enter the height:
+    <input type="text" class="h">
+    <br>
+    Enter the width:
+    <input type="text" class="w">
+    <br>
+    <button >Calculate</button>
+    <script>
+       
+        const btn=document.querySelector("button")
+        btn.addEventListener("click",()=>{
+            const height=document.querySelector(".h").value;
+            const width=document.querySelector(".w").value
+            let h=parseInt(height)
+            let w=parseInt(width)
+
+            window.alert(h*w)
+        })
+        function cal(h ,w){
+            window.alert(h)
+        }
+    </script>
+</body>
+</html>

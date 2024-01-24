@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .parent{
+            display: flex;
+            gap:3rem;
+            height: 90vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .child{
+            height: 10rem ;
+            width:10rem;
+            background-color: yellowgreen;
+        }
+        .rotate{
+            transform: rotate(30deg);
+        }
+        .move{
+            transform: translateY(30px);
+        }
+        .tilt{
+            transform: skew(20deg, 30deg);
+        }
+        .zoom{
+            transform: scale(1.2);
+        }
+        .matrix{
+            transform: matrix(1, 0, 0.5, 1, 100, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>Name:Sujal Kumar</h3>
+        <h3>Reg No :23MCA10069</h3>
+    </div>
+    <div class="parent">
+        
+        <div class="child rotate">Rotate</div>
+        <div class="child move">Translate</div>
+        <div class="child tilt">Skew</div>
+        <div class="child zoom">Zoom</div>
+        <div class="child matrix">Matrix</div>
+    </div>
+</body>
+</html>
