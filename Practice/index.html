@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Blob URL</title>
+</head>
+<body>
+
+<input type="file" id="imageInput" onchange="handleImageChange()">
+<img id="outputImage" alt="Selected Image">
+
+<script>
+function handleImageChange() {
+    const inputElement = document.getElementById('imageInput');
+    const outputElement = document.getElementById('outputImage');
+
+    const file = inputElement.files[0];
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const blobUrl = URL.createObjectURL(file);
+            outputElement.src = blobUrl;
+            console.log("i am blob",blobUrl);
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+
+</body>
+</html>

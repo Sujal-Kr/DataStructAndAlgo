@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            width: 10rem;
+            height: 10rem;
+            background-color: black;
+            animation-name: custom;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            margin: 2rem;
+        }
+        .item1{
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+        }
+        .item2{
+            animation-duration: 2s;
+            animation-iteration-count: 4;
+            animation-direction: alternate-reverse;
+        }
+        .item3{
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+        }
+        @keyframes custom {
+            0%{
+                background-color: red;
+                transform: scale(1);
+            }
+            50%{
+                background-color: blue;
+                transform: scale(1.2);
+            }
+            100%{
+                background-color: green;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Name:Sujal Kumar</h1>
+        <h2>Reg No :23MCA10069</h2>
+    </div>
+    <hr>
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+    <div class="item item3"></div>
+</body>
+</html>

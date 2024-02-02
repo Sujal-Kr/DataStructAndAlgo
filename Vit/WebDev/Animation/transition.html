@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .radius{
+            background-color: yellowgreen;
+            height: 8rem;
+            width: 8rem;
+            transition: border-radius 1s ;
+            transition-delay: 2s ;
+            transition-timing-function: ease-out;
+            margin: 2rem 0;
+        }
+        .radius:hover{
+            border-radius: 50%;
+        }
+
+        .size{
+            background-color: red;
+            color: white;
+            height: 4rem;
+            width: 5rem;
+            padding: 1rem 2rem;
+            transition: width 3s ;
+            transition-delay: 0.5s ;
+            transition-timing-function:linear ;
+        }
+        .size:hover{
+            width: 10rem;
+        }
+        .bgcolor{
+            width: 10rem;
+            height: 3rem;
+            margin: 2rem 0;
+            background-color: black;
+            transition: background-color 2s ;
+            transition-delay: 1s ;
+            transition-timing-function: ease-in-out;
+        }
+        .bgcolor:hover{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Name:Sujal Kumar</h1>
+        <h2>Reg No:23MCA10069</h2>
+    </div>
+    <hr>
+    <div class="radius"></div>
+    <div class="bgcolor"></div>
+    <div class="size"> I am a demo text</div>
+</body>
+</html>
