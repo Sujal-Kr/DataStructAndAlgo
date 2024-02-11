@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            height: 50vh;
+        }
+        .box {
+            height: 10rem;
+            width: 10rem;
+            background-color: red;
+            animation: move .5s linear 5;
+            animation-delay: 2s;
+        }
+        
+
+        @keyframes move {
+            from{
+                opacity: 0;
+            }to{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

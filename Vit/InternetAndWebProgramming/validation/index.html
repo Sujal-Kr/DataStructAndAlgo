@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Email:</label>
+        <input type="text" name="user" class="user">
+        <br>
+        <label for="">Pass:</label>
+        <input type="password"name="pass" class="pass">
+        <br>
+        <label for="">Confirm Password:</label>
+        <input type="password" name="cpass">
+        <button >Login</button>
+    </form>
+    <script>
+        const btn=document.getquerySelector("button")
+        btn.addEventListener("click",()=>{
+            let returnVal=""
+            const user = document.getquerySelector("user").value
+            const pass = document.getquerySelector("pass").value
+            
+        })
+        function validateLength(arg1,len,mess){
+            if(user.length<len)alert(mess)
+            
+        }
+    </script>
+</body>
+</html>

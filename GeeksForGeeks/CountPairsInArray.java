@@ -7,12 +7,8 @@ public class CountPairsInArray {
     }
 
     private static int solution(int[] arr) {
-        int count = 0;
-        for(int i=0; i<arr.length-1; i++) {
-            for(int j=i+1; j<arr.length; j++){
-                if(i*arr[i]>j*arr[j])count++;
-            }
-        }
-        return count;
+        
+      
+        return 0;
     }
 }

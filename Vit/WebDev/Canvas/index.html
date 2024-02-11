@@ -8,6 +8,7 @@
 <style>
     canvas{
         border:2px solid gray;
+        /* transform: rotate(30deg); */
     }
 </style>
 <body>
@@ -41,19 +42,18 @@
 
     const can=document.querySelector('#canvas')
     const g=can.getContext("2d");
-    g.beginPath();
-    g.moveTo(0,0);
-    g.lineTo(450,250);
-    g.moveTo(450,0);
-    g.lineTo(0,250);
-    g.stroke();
-    g.beginPath();
-    g.arc(225,125,90,0,2*Math.PI);
+    g.beginPath()
+    g.moveTo(0,0)
+    g.lineTo(450,250)
+    g.moveTo(450,0)
+    g.lineTo(0,250)
+    g.stroke()
+    g.beginPath()
+    g.arc(225,125,90,0,2*Math.PI)
     g.stroke()
     g.font="16px cursive"
     g.fillText("Drawing is fun!!",10,120)
     g.closePath();
-
 
 </script>
 </html>
