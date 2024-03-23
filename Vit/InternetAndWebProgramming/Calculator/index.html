@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="number" id="first">
+        <select name="" id="">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" id="second">
+        <button>Enter</button>
+    </form>
+    <script>
+        const btn=document.querySelector("button")
+        btn.addEventListener("click",()=>{
+            const first=document.querySelector("#first").value
+            const second=document.querySelector("#second").value
+            const opr=document.querySelector("select").value
+            switch(opr){
+                case '+':   const sum=parseInt(first)+parseInt(second)
+                            alert(sum)
+                            break;
+                case '-':   const diff=parseInt(first)-parseInt(second)
+                            alert(diff)
+                            break;
+                case '*':   const mult=parseInt(first)*parseInt(second)
+                            alert(mult)
+                            break;
+                case '/':   const div=parseInt(first)/parseInt(second)
+                            alert(div)
+                            break;
+                default:    alert("Opps invalid operation!!!")
+                            break;
+            }
+        })
+    </script>
+</body>
+</html>

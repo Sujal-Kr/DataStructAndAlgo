@@ -31,3 +31,34 @@ const printTable=(item)=>{
     }
 }
 table.forEach(printTable)
+
+
+// Higher Order functions....
+// map
+const updatedFilter=merge.map((item)=>{
+    return item+10
+})
+console.log("Updated array using map",updatedFilter)
+// reduce
+const ans=table.reduce((acc,item)=>{
+    return acc+=item
+},0)
+console.log("The sum  of the array is ",ans)
+
+// filter
+console.log(merge)
+const filteredArr=merge.filter(item=>{
+    return item%2==0
+})
+console.log("New filtered array is ",filteredArr)
+
+
+
+// Some healthy experiments...
+const help=[34,56,78,90,12]
+console.log(help)
+help.forEach(printHelp)
+function printHelp(item,index,arr){
+    arr[index]=item+" calling for help";
+}
+console.log("hi iam here",help);

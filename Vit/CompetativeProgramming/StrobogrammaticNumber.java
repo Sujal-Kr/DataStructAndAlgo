@@ -2,8 +2,12 @@ package Vit.CompetativeProgramming;
 import java.util.*;
 public class StrobogrammaticNumber {
     public static void main(String[] args) {
-        String n="96069";
-        System.out.println(solution(n));
+        String n="171";
+        for(int i=100;i<=999;i++){
+            if(solution(i+"")==true) {
+                System.out.print(i+" ");
+            }
+        }
     }
 
     private static boolean solution(String n) {

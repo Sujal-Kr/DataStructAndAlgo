@@ -3,31 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up Form</title>
 </head>
 <body>
-    <form action="">
-        <label for="">Email:</label>
-        <input type="text" name="user" class="user">
-        <br>
-        <label for="">Pass:</label>
-        <input type="password"name="pass" class="pass">
-        <br>
-        <label for="">Confirm Password:</label>
-        <input type="password" name="cpass">
-        <button >Login</button>
-    </form>
+    <div>
+        <form name="myForm" action="" onsubmit="return formValidate()">
+            Enter your username:
+            <input type="text"name="user">
+            <br>
+            Enter your email address:
+            <input type="text" required>
+            <br>
+            Enter your password:
+            <input type="password" name="pass" required>
+            <br>
+            Confirm password:
+            <input type="password" name="cpass" required>
+            <br>
+            <input type="submit" value="Register"/>
+        </form>
+    </div>
+
     <script>
-        const btn=document.getquerySelector("button")
-        btn.addEventListener("click",()=>{
-            let returnVal=""
-            const user = document.getquerySelector("user").value
-            const pass = document.getquerySelector("pass").value
-            
-        })
-        function validateLength(arg1,len,mess){
-            if(user.length<len)alert(mess)
-            
+        function formValidate() {
+            const pass = myForm.pass.value;
+            const cpass = myForm.cpass.value;
+            const user=myForm.user.value
+            console.log(pass," ",cpass)
+            if(user.length<4){
+                myForm.user.value=''
+                myForm.user.focus()
+                alert('username too short')
+                return false 
+            }
+            if (pass.length < 8) {
+                alert("Password length must be 8 characters");
+                myForm.pass.value = "";
+                myForm.cpass.value = "";
+                myForm.pass.focus();
+
+                return false;
+            }
+            if (pass !== cpass) {
+                alert("Passwords do not match");
+                myForm.cpass.value = ''
+                myForm.cpass.focus();
+                return false;
+            }
+            return true;
         }
     </script>
 </body>

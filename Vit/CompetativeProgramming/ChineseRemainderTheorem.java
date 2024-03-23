@@ -1,8 +1,8 @@
 package Vit.CompetativeProgramming;
 public class ChineseRemainderTheorem{
     public static void main(String[] args) {
-        int arr[]={2,3,2};
-        int rem[]={3,5,7};
+        int rem[]={2,3,2};
+        int arr[]={3,5,7};
         System.out.println(solution(arr,rem));
     }
 
