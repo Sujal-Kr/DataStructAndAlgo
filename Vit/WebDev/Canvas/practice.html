@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" height="500" width="500">
+   
+
+    </canvas>
+    <mark>Sujal</mark>
+    <embed type="video/webm" src="https://www.youtube.com/embed/7IQzGOgYwV4?si=Im998T5xerJvaPBc" width="250" height="200" />
+
+    <script>
+
+        const canvas=document.getElementById("canvas");
+        const cxt=canvas.getContext("2d");
+        cxt.strokeStyle="red"
+        cxt.moveTo(0,0);
+        cxt.lineTo(500,500);
+        cxt.stroke()
+        cxt.beginPath();
+        cxt.fillStyle="green"
+        cxt.arc(250,250,50,0,2*Math.PI)
+        cxt.fill()
+        cxt.rect(20,40,100,100)
+        cxt.fillStyle="Yellow"
+        cxt.moveTo(200,0);
+        cxt.lineTo(500,500);
+        cxt.font="20px cursive"
+        cxt.fillText("Sujal Kumar",20,100)
+        cxt.stroke();
+
+    </script>
+</body>
+</html>

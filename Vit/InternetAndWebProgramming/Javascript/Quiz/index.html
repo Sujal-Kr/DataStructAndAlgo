@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .question {
+    margin-top: 50px;
+  }
+  button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="question" id="question"></div>
+<button id="next-btn">Next Question</button>
+
+<script>
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      options: ["Paris", "London", "Rome", "Berlin"],
+      answer: "Paris"
+    },
+    {
+      question: "What is 2 + 2?",
+      options: ["3", "4", "5", "6"],
+      answer: "4"
+    },
+    {
+      question: "Who wrote 'Romeo and Juliet'?",
+      options: ["Shakespeare", "Hemingway", "Twain", "Fitzgerald"],
+      answer: "Shakespeare"
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  const questionElement = document.getElementById('question');
+  const nextButton = document.getElementById('next-btn');
+
+  function displayQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.textContent = currentQuestion.question;
+    
+    for (let i = 0; i < currentQuestion.options.length; i++) {
+      const option = document.createElement('button');
+      option.textContent = currentQuestion.options[i];
+      option.addEventListener('click', function() {
+        checkAnswer(this.textContent);
+      });
+      questionElement.appendChild(option);
+    }
+  }
+
+  function checkAnswer(selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedOption === currentQuestion.answer) {
+      alert('Correct!');
+    } else {
+      alert('Incorrect!');
+    }
+
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      displayQuestion();
+    } else {
+      questionElement.textContent = "Quiz Complete!";
+      nextButton.style.display = 'none';
+    }
+  }
+
+  nextButton.addEventListener('click', function() {
+    displayQuestion();
+    nextButton.style.display = 'none';
+  });
+
+  displayQuestion();
+</script>
+
+</body>
+</html>

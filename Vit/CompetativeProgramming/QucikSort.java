@@ -1,7 +1,5 @@
 package Vit.CompetativeProgramming;
 
-import java.io.*;
-
 class QuickSort {
 
     // A utility function to swap two elements

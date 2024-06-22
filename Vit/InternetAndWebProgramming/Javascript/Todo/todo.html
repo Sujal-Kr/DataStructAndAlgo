@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List Manager</title>
+  <style>
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todo List Manager</h1>
+  <input type="text" id="todoInput" placeholder="Enter a new task">
+  <button onclick="addTodo()">Add Task</button>
+  <ul id="todoList"></ul>
+
+  <script>
+    // Initialize todo list array
+    let todos = [];
+
+    // Function to add a new task
+    function addTodo() {
+      const todoInput = document.getElementById('todoInput');
+      const task = todoInput.value.trim();
+      if (task !== '') {
+        todos.push(task);
+        todoInput.value = '';
+        renderTodos();
+      }
+    }
+
+    // Function to render todo list
+    function renderTodos() {
+      const todoList = document.getElementById('todoList');
+      todoList.innerHTML = '';
+      todos.forEach(todo => {
+        const li = document.createElement('li');
+        li.textContent = todo;
+        todoList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -23,6 +23,7 @@
             const first=document.querySelector("#first").value
             const second=document.querySelector("#second").value
             const opr=document.querySelector("select").value
+            
             switch(opr){
                 case '+':   const sum=parseInt(first)+parseInt(second)
                             alert(sum)
@@ -33,7 +34,11 @@
                 case '*':   const mult=parseInt(first)*parseInt(second)
                             alert(mult)
                             break;
-                case '/':   const div=parseInt(first)/parseInt(second)
+                case '/':   if(second==0){
+                            alert("Can't divide by zero")
+                            return
+                            }
+                            const div=parseInt(first)/parseInt(second)
                             alert(div)
                             break;
                 default:    alert("Opps invalid operation!!!")

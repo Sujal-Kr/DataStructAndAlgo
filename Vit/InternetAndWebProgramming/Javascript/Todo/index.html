@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter Your Task....
+    <input type="text" id="task">
+    <br>
+
+    <button onclick="addTask()" id="add">Add Item</button>
+    <button onclick="removeTask()" id="del">Remove Item</button>
+    <br>
+    <p>My Task</p>
+    <ul id="tasks" type="square"></ul>
+    <script>
+        let tasks = [];
+        const taskInput = document.getElementById("task");
+        const list = document.getElementById("tasks");
+
+        function addTask() {
+            const currTask = taskInput.value.trim();
+            if (currTask !== "") {
+                tasks.push(currTask);
+                renderContent();
+                taskInput.value = ""; 
+            }
+        }
+
+        function removeTask() {
+            if (tasks.length > 0) {
+                tasks.pop();
+                renderContent();
+            }
+        }
+
+        function renderContent() {
+            list.innerHTML = "";
+            tasks.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
